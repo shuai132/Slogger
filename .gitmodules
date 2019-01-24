@@ -1,0 +1,3 @@
+[submodule "slogger/cpp/SocketLog"]
+	path = slogger/cpp/SocketLog
+	url = https://github.com/shuai132/SocketLog

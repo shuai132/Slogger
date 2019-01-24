@@ -1,0 +1,11 @@
+-runtime JNA
+
+-mode Directory
+
+-o ../src/main/java/
+
+-rootPackage com.xiaoyezi
+
+-f -direct -noComments -preferJavac -skipDeprecated
+
+-library slogger ../cpp/SLogger.h
