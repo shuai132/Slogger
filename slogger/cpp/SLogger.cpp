@@ -33,7 +33,7 @@ static bool initFile(const string &filePath) {
     logFileNow.open(filePath);
     LOGD("initFile: %s open state:%d", filePath.c_str(), logFileNow.is_open());
     auto isOpen = logFileNow.is_open();
-    if (!isOpen) {
+    if (!isOpen && errorCallback) {
         errorCallback(("create/open file failed: " + filePath).c_str());
     }
     return isOpen;
@@ -87,7 +87,9 @@ void stopRecord() {
 
     socketLog->flush();
     logFileNow.close();
-    fileCallback(logFileFullPathNow.c_str());
+    if (fileCallback) {
+        fileCallback(logFileFullPathNow.c_str());
+    }
     recording = false;
 }
 
