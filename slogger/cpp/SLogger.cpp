@@ -61,7 +61,7 @@ void init(const char *dir, FileCallback fCallback, ErrorCallback eCallback) {
     fileCallback = fCallback;
     errorCallback = eCallback;
 
-    socketLog->setSendInterceptor([](const std::string msg) {
+    socketLog->setSendInterceptor([](const std::string& msg) {
         LOGD("onLog: %s", msg.c_str());
         if (recording) {
             logFileNow<<msg;
